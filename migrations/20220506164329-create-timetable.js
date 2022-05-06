@@ -18,7 +18,7 @@ module.exports = {
       time_end: {
         type: Sequelize.TIME,
       },
-      sport_id: {
+      SportId: {
         type: Sequelize.INTEGER,
         references: { model: 'Sports' },
       },

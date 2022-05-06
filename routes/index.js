@@ -1,11 +1,29 @@
 var express = require('express');
 var router = express.Router();
-const { Schedule } = require('../models');
+const { Timetable, Sport } = require('../models');
 
 /* GET home page. */
 router.get('/', (req, res) => res.redirect('/index.html'));
-router.get('/index.html', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/index.html', async function (req, res, next) {
+  const [timetables, sports] = await Promise.all([
+    Timetable.findAll({ include: [Sport] }),
+    Sport.findAll(),
+  ]);
+
+  const formattedTimetables = timetables.reduce((acc, time) => {
+    if (!acc[time.time_start]) {
+      acc[time.time_start] = {};
+    }
+    acc[time.time_start][time.week_day] = time;
+    return acc;
+  }, {});
+
+  const formattedSports = sports.map((i) => i.name);
+
+  res.render('index', {
+    timetables: formattedTimetables,
+    sports: formattedSports,
+  });
 });
 
 router.get('/about-us.html', function (req, res, next) {
@@ -33,9 +51,25 @@ router.get('/main.html', function (req, res, next) {
 });
 
 router.get('/schedule.html', async function (req, res, next) {
-  let Schedules = await Schedule.findAll();
-  console.log(Schedules);
-  res.render('schedule', { title: 'Express', Schedules });
+  const [timetables, sports] = await Promise.all([
+    Timetable.findAll({ include: [Sport] }),
+    Sport.findAll(),
+  ]);
+
+  const formattedTimetables = timetables.reduce((acc, time) => {
+    if (!acc[time.time_start]) {
+      acc[time.time_start] = {};
+    }
+    acc[time.time_start][time.week_day] = time;
+    return acc;
+  }, {});
+
+  const formattedSports = sports.map((i) => i.name);
+
+  res.render('schedule', {
+    timetables: formattedTimetables,
+    sports: formattedSports,
+  });
 });
 
 router.get('/AddAuto.html', async function (req, res, next) {

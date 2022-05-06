@@ -3,21 +3,21 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('User_Timetables', [
-      { user_id: 1, timetable_id: 1 },
-      { user_id: 1, timetable_id: 2 },
-      { user_id: 1, timetable_id: 3 },
+      { UserId: 1, TimetableId: 1 },
+      { UserId: 1, TimetableId: 2 },
+      { UserId: 1, TimetableId: 3 },
 
-      { user_id: 2, timetable_id: 1 },
-      { user_id: 2, timetable_id: 2 },
-      { user_id: 2, timetable_id: 3 },
+      { UserId: 2, TimetableId: 1 },
+      { UserId: 2, TimetableId: 2 },
+      { UserId: 2, TimetableId: 3 },
 
-      { user_id: 3, timetable_id: 4 },
-      { user_id: 3, timetable_id: 5 },
-      { user_id: 3, timetable_id: 6 },
+      { UserId: 3, TimetableId: 4 },
+      { UserId: 3, TimetableId: 5 },
+      { UserId: 3, TimetableId: 6 },
 
-      { user_id: 4, timetable_id: 7 },
-      { user_id: 4, timetable_id: 8 },
-      { user_id: 4, timetable_id: 9 },
+      { UserId: 4, TimetableId: 7 },
+      { UserId: 4, TimetableId: 8 },
+      { UserId: 4, TimetableId: 9 },
     ]);
   },
 

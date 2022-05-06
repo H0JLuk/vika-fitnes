@@ -1,26 +1,25 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Timetable extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      this.belongsTo(models.Sport);
     }
   }
-  Timetable.init({
-    week_day: DataTypes.INTEGER,
-    time_start: DataTypes.TIME,
-    time_end: DataTypes.TIME,
-    sport_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Timetable',
-  });
+
+  Timetable.init(
+    {
+      week_day: DataTypes.INTEGER,
+      time_start: DataTypes.TIME,
+      time_end: DataTypes.TIME,
+    },
+    {
+      sequelize,
+      modelName: 'Timetable',
+      timestamps: false,
+    },
+  );
+
   return Timetable;
 };
