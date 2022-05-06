@@ -6,41 +6,41 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       IdUser: {
         type: Sequelize.INTEGER,
         references: {
           model: {
             tableName: 'Users', // имя таблицы
-            schema: 'schema'
+            schema: 'schema',
           },
-          key: 'IdUser' // поле таблицы
+          key: 'IdUser', // поле таблицы
         },
-        allowNull: false
+        allowNull: false,
       },
       IdClass: {
         type: Sequelize.INTEGER,
         references: {
           model: {
             tableName: 'Сlasses', // имя таблицы
-            schema: 'schema'
+            schema: 'schema',
           },
-          key: 'IdClass' // поле таблицы
+          key: 'IdClass', // поле таблицы
         },
-        allowNull: false
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('User_Classes');
-  }
+  },
 };

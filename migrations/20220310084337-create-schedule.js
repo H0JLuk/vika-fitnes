@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Schedules', {
@@ -6,44 +6,44 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       Date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       IdCoach_Class: {
         type: Sequelize.INTEGER,
         references: {
           model: {
             tableName: 'Сoaches_Classes', // имя таблицы
-            schema: 'schema'
+            schema: 'schema',
           },
-          key: 'IdCoach_Class' // поле таблицы
+          key: 'IdCoach_Class', // поле таблицы
         },
-        allowNull: false
+        allowNull: false,
       },
       IdUser_Class: {
         type: Sequelize.INTEGER,
         references: {
           model: {
             tableName: 'User_Classes', // имя таблицы
-            schema: 'schema'
+            schema: 'schema',
           },
-          key: 'IdUser_Class' // поле таблицы
+          key: 'IdUser_Class', // поле таблицы
         },
-        allowNull: false
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Schedules');
-  }
+  },
 };
