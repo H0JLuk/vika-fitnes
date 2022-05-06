@@ -43,6 +43,15 @@ module.exports = {
         phone: '88005553535',
         age: 54,
       },
+
+      {
+        first_name: 'Сан',
+        last_name: 'Саныч',
+        login: 'san_sanych',
+        password: 'san_123_san',
+        phone: '8984843483483',
+        age: 29,
+      },
     ]);
   },
 

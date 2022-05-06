@@ -3,62 +3,21 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('User_Timetables', [
-      {
-        week_day: 1,
-        time_start: '10:00',
-        time_end: '13:00',
-        sport_id: 1,
-      },
-      {
-        week_day: 3,
-        time_start: '10:00',
-        time_end: '13:00',
-        sport_id: 1,
-      },
-      {
-        week_day: 5,
-        time_start: '10:00',
-        time_end: '13:00',
-        sport_id: 1,
-      },
+      { user_id: 1, timetable_id: 1 },
+      { user_id: 1, timetable_id: 2 },
+      { user_id: 1, timetable_id: 3 },
 
-      {
-        week_day: 3,
-        time_start: '16:00',
-        time_end: '18:00',
-        sport_id: 3,
-      },
-      {
-        week_day: 3,
-        time_start: '16:00',
-        time_end: '18:00',
-        sport_id: 3,
-      },
-      {
-        week_day: 5,
-        time_start: '16:00',
-        time_end: '18:00',
-        sport_id: 3,
-      },
+      { user_id: 2, timetable_id: 1 },
+      { user_id: 2, timetable_id: 2 },
+      { user_id: 2, timetable_id: 3 },
 
-      {
-        week_day: 2,
-        time_start: '20:00',
-        time_end: '22:00',
-        sport_id: 5,
-      },
-      {
-        week_day: 4,
-        time_start: '20:00',
-        time_end: '22:00',
-        sport_id: 5,
-      },
-      {
-        week_day: 6,
-        time_start: '20:00',
-        time_end: '22:00',
-        sport_id: 5,
-      },
+      { user_id: 3, timetable_id: 4 },
+      { user_id: 3, timetable_id: 5 },
+      { user_id: 3, timetable_id: 6 },
+
+      { user_id: 4, timetable_id: 7 },
+      { user_id: 4, timetable_id: 8 },
+      { user_id: 4, timetable_id: 9 },
     ]);
   },
 

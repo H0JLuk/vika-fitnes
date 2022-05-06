@@ -26,6 +26,11 @@ module.exports = {
       age: {
         type: Sequelize.INTEGER,
       },
+      role: {
+        type: Sequelize.STRING,
+        validate: { is: /^((user)|(trainer)|(admin))$/i },
+        defaultValue: 'user',
+      },
     });
   },
   async down(queryInterface, Sequelize) {
