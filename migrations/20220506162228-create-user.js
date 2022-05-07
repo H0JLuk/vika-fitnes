@@ -30,6 +30,11 @@ module.exports = {
         type: Sequelize.STRING,
         validate: { is: /^((user)|(trainer)|(admin))$/i },
         defaultValue: 'user',
+        allowNull: false,
+      },
+      photo: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
     });
   },

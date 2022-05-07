@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { Timetable, Sport } = require('../models');
+const { Timetable, Sport, User } = require('../models');
 
 /* GET home page. */
 router.get('/', (req, res) => res.redirect('/index.html'));
@@ -18,16 +18,20 @@ router.get('/index.html', async function (req, res, next) {
     return acc;
   }, {});
 
+  const sortedTimetables = Object.entries(formattedTimetables).sort(
+    ([a], [b]) => a.localeCompare(b),
+  );
   const formattedSports = sports.map((i) => i.name);
 
   res.render('index', {
-    timetables: formattedTimetables,
+    timetables: sortedTimetables,
     sports: formattedSports,
   });
 });
 
-router.get('/about-us.html', function (req, res, next) {
-  res.render('about-us', { title: 'Express' });
+router.get('/about-us.html', async function (req, res, next) {
+  const trainers = await User.findAll({ where: { role: 'trainer' } });
+  res.render('about-us', { trainers });
 });
 
 router.get('/blog.html', function (req, res, next) {
@@ -63,17 +67,25 @@ router.get('/schedule.html', async function (req, res, next) {
     acc[time.time_start][time.week_day] = time;
     return acc;
   }, {});
+  const sortedTimetables = Object.entries(formattedTimetables).sort(
+    ([a], [b]) => a.localeCompare(b),
+  );
 
   const formattedSports = sports.map((i) => i.name);
 
   res.render('schedule', {
-    timetables: formattedTimetables,
+    timetables: sortedTimetables,
     sports: formattedSports,
   });
 });
 
-router.get('/AddAuto.html', async function (req, res, next) {
-  res.render('AddAuto');
+router.get('/add-trainer.html', async function (req, res, next) {
+  res.render('add-trainer');
+});
+
+router.post('/add-trainer', async function (req, res, next) {
+  await User.create({ ...req.body, role: 'trainer' });
+  res.redirect('/about-us.html');
 });
 
 module.exports = router;

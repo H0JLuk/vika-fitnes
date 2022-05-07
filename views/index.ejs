@@ -260,7 +260,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% for (const [time_start, timetable] of Object.entries(timetables)) { %>
+                        <% for (const [time_start, timetable] of timetables) { %>
                             <tr>
                                 <td class="workout-time">
                                     <%= time_start.slice(0, -3) %>
