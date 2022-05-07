@@ -1,24 +1,24 @@
 {
   "development": {
-    "username": "090302-ist19_vik",
-    "password": "090302-ist19_vik",
-    "database": "090302-ist19_vika",
+    "username": "090302-ist19_NVV",
+    "password": "Vika55",
+    "database": "090302-ist19_NVV",
     "host": "84.201.184.150",
     "dialect": "mysql",
     "seederStorage": "json"
   },
   "test": {
-    "username": "090302-ist19_vik",
-    "password": "090302-ist19_vik",
-    "database": "090302-ist19_vika",
+    "username": "090302-ist19_NVV",
+    "password": "Vika55",
+    "database": "090302-ist19_NVV",
     "host": "84.201.184.150",
     "dialect": "mysql",
     "seederStorage": "json"
   },
   "production": {
-    "username": "090302-ist19_vik",
-    "password": "090302-ist19_vik",
-    "database": "090302-ist19_vika",
+    "username": "090302-ist19_NVV",
+    "password": "Vika55",
+    "database": "090302-ist19_NVV",
     "host": "84.201.184.150",
     "dialect": "mysql",
     "seederStorage": "json"
