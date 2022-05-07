@@ -10,6 +10,7 @@ module.exports = {
         password: 'wolf56_',
         phone: '8907465446845',
         age: 11,
+        role: 'user',
       },
       {
         first_name: 'Марина',
@@ -18,6 +19,7 @@ module.exports = {
         password: 'marina_12',
         phone: '8945648648543',
         age: 24,
+        role: 'user',
       },
       {
         first_name: 'Андрей',
@@ -26,6 +28,7 @@ module.exports = {
         password: 'andro_228',
         phone: '8956848643543',
         age: 19,
+        role: 'user',
       },
       {
         first_name: 'Сергей',
@@ -34,6 +37,7 @@ module.exports = {
         password: 'sergo_karp_432',
         phone: '89423454384',
         age: 91,
+        role: 'user',
       },
       {
         first_name: 'Глад',
@@ -42,6 +46,7 @@ module.exports = {
         password: 'bda_bda_1337_1488',
         phone: '88005553535',
         age: 54,
+        role: 'user',
       },
 
       {
